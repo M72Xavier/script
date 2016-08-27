@@ -1,3 +1,4 @@
+/*<![CDATA[*/
 TypingText = function(element, interval, cursor, finishedCallback){
 	if((typeof document.getElementById == "undefined") || (typeof element.innerHTML == "undefined")){
 		this.running = true;
@@ -79,10 +80,11 @@ TypingText.prototype.run = function(){
 		this.element.innerHTML += (this.currentChar < this.origText.length - 1 ? (typeof this.cursor == "function" ? this.cursor(this.currentText) : this.cursor) : "");
 		this.currentChar++;
 		setTimeout("document.getElementById('" + this.element.id + "').typingText.run()", this.interval);
-		}else{
-			this.currentText = "";
-			this.currentChar = 0;
-			this.running = false;
-			this.finishedCallback();
-		}
+	}else{
+		this.currentText = "";
+		this.currentChar = 0;
+		this.running = false;
+		this.finishedCallback();
 	}
+}
+/*]]>*/
